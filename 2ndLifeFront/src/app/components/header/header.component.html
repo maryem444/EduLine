@@ -1,0 +1,93 @@
+      <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0" *ngIf="!isAdminLoggedIn">
+            <div class="logo-img" >
+                <a routerLink="/login">
+                  <img src="assets/image/EduLine.png" alt="">
+                </a>
+            </div>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <li ><a routerLink="/home" class="nav-link">Home</a></li>
+                    <a routerLink="/customer/courses" class="nav-item nav-link">Courses</a>
+                    <a routerLink="/customer/teachers" class="nav-item nav-link">Teachers</a>
+                    <a routerLink="/customer/my_enroll" class="nav-item nav-link" *ngIf="isCustomerLoggedIn">My Enrollments</a>
+                    <li><a routerLink="/login" class="nav-link" *ngIf="!isCustomerLoggedIn">Login</a></li>
+                    <a routerLink="signup" class="nav-item nav-link" *ngIf="!isCustomerLoggedIn">Sign Up</a>
+                <!--div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="facility.html" class="dropdown-item">School Facilities</a>
+                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
+                            <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
+                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                        </div>
+                    </div-->
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a routerLink="/login" class="nav-link" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" *ngIf="!isCustomerLoggedIn">Login<i class="fa fa-arrow-right ms-3"></i></a>
+                <a (click)="logout()" class="nav-link" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" *ngIf="isCustomerLoggedIn">Logout<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0" *ngIf="isAdminLoggedIn" style="z-index: 0;">
+            <div class="logo-img" >
+                <a routerLink="/home">Admin
+                  <img src="assets/image/EduLine.png" alt="">
+                </a>
+              </div>
+              
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <li ><a routerLink="/admin/teacher" class="nav-link">Add Teacher</a></li>
+                    <li ><a routerLink="/admin/course" class="nav-link">Add Course</a></li>
+                    
+                    <li ><a routerLink="/admin/dashboard" class="nav-link">Teacher's List</a></li>
+                    <li ><a routerLink="/admin/dash" class="nav-item nav-link">Course's List</a></li>
+                    <li ><a routerLink="/admin/enrollments" class="nav-item nav-link">Enrollments</a></li>
+                    
+                </div>
+                <a (click)="logout()" class="nav-link" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Logout<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        
+        
+        <!--nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0" *ngIf="isCustomerLoggedIn">
+            <div class="logo-img" >
+                <a routerLink="/login">Customer
+                  <img src="assets/image/EduLine.png" alt="">
+                </a>
+              </div>
+              
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="classes.html" class="nav-item nav-link">Classes</a>
+                    <li><a routerLink="/customer/dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a (click)="logout()" class="nav-link">Logout</a></li>
+                    
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav-->
+        <!-- Navbar End -->
+
+
+        
+
+
+        

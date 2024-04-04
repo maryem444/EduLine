@@ -1,0 +1,51 @@
+<!-- Popular Teachers Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Popular Teachers</h1>
+            <p>Great teachers inspire, guide, and empower their students, shaping futures and fostering growth. They create environments where learning flourishes and curiosity thrives. With dedication and passion, they illuminate the path to knowledge, instilling not just facts but also values, wisdom, and character.</p>
+        </div>
+        <br>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let teacher of teachers">
+                <div class="classes-item">
+                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                        <img class="img-fluid rounded-circle" [src]="teacher.processedImg" alt="">
+                    </div>
+                    <div class="bg-light rounded p-4 pt-5 mt-n5">
+                        <a class="d-block text-center h3 mt-3 mb-4">{{teacher.fullName}}</a>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <h6 class="text-primary mb-1"></h6>
+                                    <small></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-1">
+                            <div class="col-4">
+                                <div class="border-top border-3 border-primary pt-2">
+                                    <h6 class="text-primary mb-1">Experience:</h6>
+                                    <small>{{teacher.experience}}</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div >
+                                    <h6 class="text-success mb-1"></h6>
+                                    <small></small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border-top border-3 border-success pt-2">
+                                    <h6 class="text-success mb-1">Speciality:</h6>
+                                    <small>{{teacher.speciality}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popular Teachers End -->

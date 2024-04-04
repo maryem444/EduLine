@@ -1,0 +1,58 @@
+<div class="container-fluid p-0 mb-5">
+  <br><br>
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="bg-light rounded">
+        <div class="row g-0">
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+            <div class="h-100 d-flex flex-column justify-content-center p-5">
+              <h1 class="mb-4">Connexion</h1>
+              <form [formGroup]="loginForm">
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control"  formControlName="email" name="email"
+                        placeholder="Write your email here" required>
+                      <label for="email">Email</label>
+                      <div class="text-danger" *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                        <div *ngIf="loginForm.controls['email'].errors?.['required']">Champ obligatoire</div>
+                        <div *ngIf="loginForm.controls['email'].errors?.['email']">Format d'e-mail invalide</div>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" formControlName="password"
+                        name="password" placeholder="Write your password here" required>
+                      <label for="password">Password</label>
+                      <div class="text-danger" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                        <div *ngIf="loginForm.controls['password'].errors?.['required']">Champ obligatoire</div>
+                        <div *ngIf="loginForm.controls['password'].errors?.['password']">Format d'e-mail invalide</div>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <button class="btn btn-primary w-100 py-3" type="submit" [disabled]="loginForm.invalid" (click)="login()">Connexion</button>
+                    </div>
+                  </div>
+                  <a href="/signup">Don't have an account? Sign Up Now.</a>
+                </div>
+              </form>
+              <div id="error" class="text-danger mt-3"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+            <div class="position-relative h-100">
+              <img class="position-absolute w-100 h-100 rounded" src="assets/image/login2.png"
+                style="object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br>

@@ -1,0 +1,24 @@
+.table-row {
+    background-color: #f9f9f9; /* Alternate row background color */
+  }
+  
+  .text-blue {
+    color: blue !important; /* Status color for PENDING */
+  }
+  
+  .text-green {
+    color: green !important; /* Status color for APPROVED */
+  }
+  
+  .text-red {
+    color: red !important; /* Status color for REJECTED */
+  }
+  
+  /* Center the title */
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(216, 163, 94);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  }
+  

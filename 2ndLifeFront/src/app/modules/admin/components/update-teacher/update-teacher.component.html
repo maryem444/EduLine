@@ -1,0 +1,58 @@
+<br><br><br>
+<section class="contact_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" >
+          <div class="detail-box" style="background-image:  url('assets/image/5238535.png');  background-size: cover; height: 500px; width: auto; background-position: center; margin-right: 150px;">
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-form" >
+            <h5 style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">
+              Edit Teacher Form
+            </h5>
+            <form [formGroup]="updateForm">
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <span style="margin-left: 100px;">Select a file here :</span>
+                    <input type="file" nz-button nzType="primary" id="upload-profile-image" accept="image/x-png,image/gif,image/jpeg" 
+                     (change)="onFileSelected($event)" />
+                    </label>
+                    <div class="image-preview" *ngIf="imagePreview">
+                        <div class="circle-image">
+                          <img class="preview-image" [src]="imagePreview" alt="Existing Image" />
+                        </div>
+                    </div>
+                
+                    <div *ngIf="existingImage" class="image-preview">
+                    <div class="circle-image">
+                      <img class="preview-image" [src]="existingImage" alt="Existing Image" />
+                    </div>
+                </div>
+                </div>
+              <div>
+                <input type="text" placeholder="Full Name " class="form-control" formControlName="fullName" >
+                
+              </div>
+              <div>
+                <input type="text" placeholder="Speciality " class="form-control" formControlName="speciality">
+                
+              </div>
+              <div>
+                <input type="email" placeholder="Experience " class="form-control" formControlName="experience">
+                
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="form-group">
+                    <button type="submit" (click)="updateTeacher()" class="btn_on-hover" type="submit"  [disabled]="updateForm.invalid">
+                        Update
+                    </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

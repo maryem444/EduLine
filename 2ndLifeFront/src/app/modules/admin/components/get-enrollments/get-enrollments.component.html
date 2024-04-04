@@ -1,0 +1,39 @@
+<div class="container">
+    <br>
+    <h1 class="text-center">Enrollments Requests</h1>
+    <br><br>
+    <table class="table" style="width: 80%; margin: 0 auto; text-align: center;">
+        <thead>
+        <tr>
+          <th scope="col" style="font-weight: bolder; color: brown;text-align: center;">Users ID</th>
+          <th scope="col" style="font-weight: bolder; color: brown;text-align: center;">Users Email</th>
+          <th scope="col" style="font-weight: bolder; color: brown;text-align: center;">Courses ID</th>
+          <th scope="col" style="font-weight: bolder; color: brown;text-align: center;">Status</th>
+          <th scope="col" style="font-weight: bolder; color: brown; text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of enrollments" class="table-row" style="text-align: center;">
+          <td>{{ course.userId }}</td>
+          <td>{{ course.email }} </td>
+          <td>{{ course.courseId }}</td>
+          <td>
+            <strong [ngClass]="{
+              'text-red': course.enrollCourseStatus === 'PENDING',
+              'text-green': course.enrollCourseStatus === 'APPROVED',
+              'text-blue': course.enrollCourseStatus === 'REJECTED'
+            }">
+              {{ course.enrollCourseStatus }}
+            </strong>
+          </td>
+          <td style="text-align: center;">
+            <span *ngIf="course.enrollCourseStatus == 'PENDING'" style="text-align: center;">
+              <button class="btn btn-success" style="margin-left: 10px;" (click)="changeEnrollmentStatus(course.id, 'Approve')">Approve</button>
+              <button class="btn btn-warning" style="margin-left: 10px;" (click)="changeEnrollmentStatus(course.id, 'Reject')">Reject</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="text-center">My Enrollments</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" style="font-weight: bolder; color: blue;">Courses Title</th>
+        <th scope="col" style="font-weight: bolder; color: blue;">Courses Price</th>
+        <th scope="col" style="font-weight: bolder; color: blue;">Courses Start Date</th>
+        <th scope="col" style="font-weight: bolder; color: blue;">Courses Duration</th>
+        <th scope="col" style="font-weight: bolder; color: blue;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of enrollments" class="table-row">
+        <td>{{ course.courseTitle }}</td>
+        <td>{{ course.coursePrice }} DT</td>
+        <td>{{ course.startDate }}</td>
+        <td>{{ course.duration }} H</td>
+        <td>
+          <strong [ngClass]="{
+            'text-red': course.enrollCourseStatus === 'PENDING',
+            'text-green': course.enrollCourseStatus === 'APPROVED',
+            'text-blue': course.enrollCourseStatus === 'REJECTED'
+          }">
+            {{ course.enrollCourseStatus }}
+          </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

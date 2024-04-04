@@ -1,0 +1,47 @@
+<br><br>
+<div data-scroll-index='1' class="admission_area">
+    <div class="admission_inner">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-7">
+                    <div class="admission_form">
+                        <h3>Add an Online Course</h3>
+                        <form [formGroup]="updateForm" >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="single_input">
+                                        <input type="text" placeholder="Course Title" class="form-control" formControlName="courseTitle" required>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="single_input">
+                                        <input type="text" placeholder="Price" class="form-control" formControlName="coursePrice" required>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="single_input">
+                                        <input type="date" placeholder="Start Date" class="form-control" formControlName="startDate" required>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="single_input">
+                                        <input type="text" placeholder="Duration" class="form-control" formControlName="duration" required>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="apply_btn">
+                                        <button class="boxed-btn3" type="submit" (click)="updateCourse()" [disabled]="updateForm.invalid">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

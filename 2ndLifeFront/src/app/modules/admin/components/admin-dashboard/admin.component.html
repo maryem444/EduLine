@@ -1,0 +1,23 @@
+<div style="background-color:#F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+        <div style="margin-top:10px;" class="child" *ngFor="let teacher of teachers">
+            <div nz-row class="row">
+                        <div nz-col nzSpan="8">
+                            <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="teacher.processedImg" alt="profile" />
+                        </div>
+                        <div nz-col nzspan="16">
+                            <h3>Full Name: {{teacher.fullName}}</h3>
+                            <p>Speciality: {{teacher.speciality}}</p>
+                            <h4 style="cursor: pointer; color: rgb(106, 106, 212);">Experience:  {{teacher.experience}}</h4>
+                        </div> 
+                        <hr>
+                        <div style="float: right;">
+                            <button style="margin-left: 10px; width: 320px; height: 40px; font-size: 16px;" nzSize="small" type="button" class="btn btn-success rounded-pill"  
+                            routerLink="/admin/teacher/{{teacher.id}}">Update</button>
+                            <button style="margin-left: 10px; width: 320px; height: 40px; font-size: 16px;" nzSize="small" type="button" class="btn btn-danger rounded-pill" 
+                            (click)="deleteTeacher(teacher.id)">Delete</button>
+                            
+                        </div> 
+            </div>
+        </div>
+</div>

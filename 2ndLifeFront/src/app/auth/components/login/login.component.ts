@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   invalidLogin!: boolean;
   loginForm!: FormGroup;
+  errorMessage!: string;
 
   constructor(
     private userService: UserJwtService,
@@ -31,24 +33,36 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.loginForm.value);
-    this.userService.login(this.loginForm.value).subscribe((res)=>{
-      console.log(res);
-      if (res.userId != null) {
-        const user = {
-          id: res.userId,
-          role: res.userRole
+    this.userService.login(this.loginForm.value).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.userId != null) {
+          const user = {
+            id: res.userId,
+            role: res.userRole
+          };
+          StorageService.saveUser(user);
+          if (StorageService.isAdminLoggedIn()) {
+            this.router.navigateByUrl("/admin/dashboard");
+          } else if (StorageService.isCustomerLoggedIn()) {
+            this.router.navigateByUrl("/customer/dashboard");
+          } else {
+            console.log("Bad credentials");
+          }
         }
-        StorageService.saveUser(user);
-        if(StorageService.isAdminLoggedIn()){
-          this.router.navigateByUrl("/admin/dashboard")
-        }else if (StorageService.isCustomerLoggedIn()){
-          this.router.navigateByUrl("/customer/dashboard")
-        }else{
-          console.log("Bad credentials");
+      },
+      (error) => {
+        console.error("Error:", error);
+        if (error instanceof HttpErrorResponse && error.status === 400) {
+          console.log("Error:", error.error);
+          this.errorMessage = error.error; // Assign the error message to the variable
+        } else {
+          // Handle other types of errors
         }
       }
-    });
-    }
+    );
+  }
+  
   /*
     const formData = this.loginForm.value;
   
